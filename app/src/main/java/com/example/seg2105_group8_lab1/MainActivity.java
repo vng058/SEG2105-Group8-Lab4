@@ -18,10 +18,11 @@ public class MainActivity extends AppCompatActivity{
 
     double val1, val2, result;
 
-    enum Operator {none, add, minus, multiply, divide};
+   // enum Operator {none, add, minus, multiply, divide};
     //String [] symbols = {"+","-","*","/"};
     String symbol;
     Operator optr = Operator.none;
+    Evaluator evaluator = new Evaluator();
 
 
     @Override
@@ -204,25 +205,11 @@ public class MainActivity extends AppCompatActivity{
         }
         return true;
     }
-    private String formatResult(double value) {
-        BigDecimal bd = BigDecimal.valueOf(value).stripTrailingZeros();
-        return bd.toPlainString(); // "12" instead of "12.0"
-    }
+
 
     private void doOperation(double value1, double value2){
-        if(optr == Operator.add){
-            result = value1 + value2;
-        }
-        if(optr == Operator.minus){
-            result = value1 - value2;
-        }
-        if(optr == Operator.multiply){
-            result = value1*value2;
-        }
-        if(optr == Operator.divide){
-            result = value1/value2;
-        }
-        display.setText(formatResult(result));
+        result = evaluator.doOperationLogic(value1, value2, optr);
+        display.setText(evaluator.formatResult(result));
 
     }
     private void inputNumber(String num){

@@ -1,2 +1,2 @@
-# Uottawa Lab 1 Project for SEG2105 - Android Studio
+# Uottawa Lab 4 Project for SEG2105 - Android Studio
 
